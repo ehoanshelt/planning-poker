@@ -21,10 +21,7 @@ export class StrapiService {
   private headers = {'Authorization': 'Bearer cb96cf6e1cfbea005242e399f56ab89027ff3c0c336201edd976783f04a3810dfc58a0e60782526c3acfd8722cb00e9adc0f3aabb6612e1244b95fc9ed8ffd1ded9ed1feaa51650501536ef6e71233a9c622cb3e58d7081d604f15dcc329b31a19a43e482dd1d386bbf79fbb21bdb6d799e1e203ad5c140301f1fd4412f63fcf'};
 
   private hasToken() : boolean {
-    if (this.cookieService.get('ppjwt')){
-      return true;
-    }
-    return false;
+    return !!this.cookieService.get('ppjwt');
   }
   
   addUser(data: NewUser){
