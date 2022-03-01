@@ -27,8 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "bootstrap/dist/css/bootstrap.min.css"
+              "src/styles.scss"
             ],
             "scripts": [
               "bootstrap/dist/js/bootstrap.min.js"
@@ -97,8 +96,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "bootstrap/dist/css/bootstrap.min.css"
+              "src/styles.scss"
             ],
             "scripts": [
               "bootstrap/dist/js/bootstrap.min.js"
@@ -106,6 +104,11 @@
           }
         }
       }
+    }
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss"
     }
   },
   "defaultProject": "planning-poker"
