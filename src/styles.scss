@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+// Your variable overrides
+$theme-colors: (
+  "primary": #56B6C4,
+  "danger": #F7A579,
+  "secondary": #9567E0,
+);
+
+$navbar-light-color : white;
+
+.navbar{
+    background-color: #6F3096;
+}
+
+@import "node_modules/bootstrap-scss/bootstrap";
