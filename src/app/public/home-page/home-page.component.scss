@@ -3,8 +3,19 @@ header{
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    text-align: center;
+    background-position: center;
     color:white;
+    min-height: 500px;
+}
+
+.card{
+    border:none;
+    text-align: center;
+}
+
+.card .bi{
+    font-size: 5em;
+    color: #9567E0;
 }
 
 

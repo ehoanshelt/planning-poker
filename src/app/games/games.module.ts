@@ -7,6 +7,7 @@ import { GameModifyComponent } from './game-modify/game-modify.component';
 import { GameDeleteComponent } from './game-delete/game-delete.component';
 import { GameShowComponent } from './game-show/game-show.component';
 import { GameHomeComponent } from './game-home/game-home.component';
+import { GameIndexComponent } from './game-index/game-index.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { GameHomeComponent } from './game-home/game-home.component';
     GameModifyComponent,
     GameDeleteComponent,
     GameShowComponent,
-    GameHomeComponent
+    GameHomeComponent,
+    GameIndexComponent
   ],
   imports: [
     CommonModule,
