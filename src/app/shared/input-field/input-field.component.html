@@ -1,0 +1,22 @@
+<div class="mb-3">
+    <label class="form-label">{{ label }}</label>
+    <input 
+        [type]="inputType"  
+        [formControl]="control" 
+        class="form-control"
+        [ngClass]="{ 'is-invalid' : showErrors() }">
+    <div *ngIf="showErrors()">
+        <div class="invalid-feedback" *ngIf="control.errors.required">
+            This field is required
+        </div>
+        <div class="invalid-feedback" *ngIf="control.errors.email">
+            This isn't a valid email
+        </div>
+        <div class="invalid-feedback" *ngIf="control.errors.minlength">
+            Your value is only {{control.errors.minlength.actualLength}} characters long but needs to be atleast {{control.errors.minlength.requiredLength}} characters long.
+        </div>
+        <div class="invalid-feedback" *ngIf="control.errors.maxlength">
+            Your value is {{control.errors.maxlength.actualLength}} characters long but needs to be under {{control.errors.maxlength.requiredLength}} characters long.
+        </div>
+    </div>
+</div>

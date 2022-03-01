@@ -1,0 +1,7 @@
+<h1>Sign In</h1>
+
+<form [formGroup]="signinForm">
+    <app-input-field label="Email Address" [control]="signinForm.controls['email']" inputType="text"></app-input-field>
+    <app-input-field label="Password" [control]="signinForm.controls['password']" inputType="password"></app-input-field>
+    <button class="btn btn-primary" (click)="loginUser()">Log in</button>
+</form>

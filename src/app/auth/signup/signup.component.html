@@ -1,0 +1,9 @@
+<h1>Sign Up!</h1>
+
+<form [formGroup]="signupForm">
+    <app-input-field label="Email Address" [control]="signupForm.controls['email']" inputType="text"></app-input-field>
+    <app-input-field label="Password" [control]="signupForm.controls['password']" inputType="password"></app-input-field>
+    <app-input-field label="Password Confirmation" [control]="signupForm.controls['passwordConfirmation']" inputType="password"></app-input-field>
+    <p class="invalid-feedback" *ngIf="message">{{message}}</p>
+    <button class="btn btn-primary" (click)="addUser(signupForm)">Sign Up!</button>
+</form>
