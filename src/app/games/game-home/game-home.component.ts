@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { StrapiService } from 'src/app/services/strapi.service';
+import { tap, catchError } from 'rxjs';
+
 
 @Component({
   selector: 'app-game-home',
@@ -6,10 +9,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game-home.component.css']
 })
 export class GameHomeComponent implements OnInit {
+  
+  usersGameData:any;
 
-  constructor() { }
+  constructor(private strapiService:StrapiService) { }
 
   ngOnInit(): void {
+    this.strapiService.getUserID().pipe(
+      tap(response => {
+        this.strapiService.userID = response.id.toString();
+        this.getUsersGames();
+      }),
+      catchError((err) => {
+        throw "Couldn't fetch user id";
+      })
+    ).subscribe();
   }
 
+  getUsersGames(){
+    this.strapiService.getUserGames(this.strapiService.userID).pipe(
+      tap((response) => {
+        this.usersGameData = response;
+      }),
+      catchError((err) => {
+        throw "Couldn't fetch the users games";
+      })
+    ).subscribe();
+  }
 }

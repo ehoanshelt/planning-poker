@@ -43,7 +43,8 @@ export class SigninComponent implements OnInit {
       tap(response => {
         this.cookieService.set('ppjwt', response['jwt'], {expires: 7});
         this.strapiService.isAuth$.next(true);
-        this.router.navigateByUrl('/games')
+        this.strapiService.userID = response['user'].id;
+        this.router.navigateByUrl('/games');
       })
     ).subscribe()
   }

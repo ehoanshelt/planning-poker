@@ -8,6 +8,7 @@ import { GameDeleteComponent } from './game-delete/game-delete.component';
 import { GameShowComponent } from './game-show/game-show.component';
 import { GameHomeComponent } from './game-home/game-home.component';
 import { GameIndexComponent } from './game-index/game-index.component';
+import { GamePlayComponent } from './game-play/game-play.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { GameIndexComponent } from './game-index/game-index.component';
     GameDeleteComponent,
     GameShowComponent,
     GameHomeComponent,
-    GameIndexComponent
+    GameIndexComponent,
+    GamePlayComponent
   ],
   imports: [
     CommonModule,

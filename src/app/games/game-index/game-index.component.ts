@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
+import { StrapiService } from 'src/app/services/strapi.service';
+
+
 
 @Component({
   selector: 'app-game-index',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameIndexComponent implements OnInit {
 
-  constructor() { }
+  @Input() set data(value:any){
+    if(value != undefined){
+      this.gameData = value.data;
+      return;
+    }
+  }
+
+  gameData:any;
+
+
+  constructor(private strapiService: StrapiService) {}
 
   ngOnInit(): void {
   }
-
 }

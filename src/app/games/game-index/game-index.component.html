@@ -1,4 +1,4 @@
-<table class="table table-striped">
+<table class="table table-striped" *ngIf="gameData">
     <thead>
       <tr>
         <th scope="col">Game Name</th>
@@ -7,15 +7,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><a routerLink="/">NDVR 10/10/2022</a></td>
-        <td>NDVR</td>
-        <td>16</td>
-      </tr>
-      <tr>
-        <td>CSI fun time</td>
-        <td>CSI</td>
-        <td>21</td>
+      <tr *ngFor="let game of gameData;">
+        <td><a [routerLink]="game.id">{{ game.attributes.name }}</a></td>
+        <td>{{ game.attributes.project }}</td>
+        <td>{{ game.attributes.jiraIds.length }}</td>
       </tr>
     </tbody>
   </table>
