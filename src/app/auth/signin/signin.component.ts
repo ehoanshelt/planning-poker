@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { StrapiService } from 'src/app/services/strapi.service';
 import { CookieService } from 'ngx-cookie-service';
-import { catchError, tap } from 'rxjs';
+import { catchError, tap, take } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -42,8 +42,11 @@ export class SigninComponent implements OnInit {
       }),
       tap(response => {
         this.cookieService.set('ppjwt', response['jwt'], {expires: 7});
-        this.strapiService.isAuth$.next(true);
         this.strapiService.userID = response['user'].id;
+        this.strapiService.isAuth$.next(true);
+      }),
+      take(1),
+      tap(response => {
         this.router.navigateByUrl('/games');
       })
     ).subscribe()

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StrapiService } from 'src/app/services/strapi.service';
-import { tap, catchError } from 'rxjs';
+import { tap, catchError, take } from 'rxjs';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class GameHomeComponent implements OnInit {
         this.getUsersGames();
       }),
       catchError((err) => {
-        throw "Couldn't fetch user id";
+        throw "Couldn't fetch user id: " + err;
       })
     ).subscribe();
   }
